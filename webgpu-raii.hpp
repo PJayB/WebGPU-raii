@@ -60,14 +60,14 @@ public:
 		Destruct();
 		assert(m_raw == nullptr);
 		m_raw = other.m_raw;
-		m_raw.addRef();
+		if (m_raw) m_raw.addRef();
 		return *this;
 	}
 
 	Wrapper(const Wrapper& other)
 		: m_raw(other.m_raw)
 	{
-		m_raw.addRef();
+		if (m_raw) m_raw.addRef();
 	}
 
 	// Move semantics
