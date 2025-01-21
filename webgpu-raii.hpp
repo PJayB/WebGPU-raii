@@ -80,7 +80,7 @@ public:
 	}
 
 	Wrapper(Wrapper&& other)
-		: m_raw(other.m_raw)
+		: m_raw(std::move(other.m_raw))
 	{
 		other.m_raw = nullptr;
 	}
